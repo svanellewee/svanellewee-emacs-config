@@ -88,6 +88,7 @@
  '(flymake-luac-program "/home/stephan/source/lua/5.1/bin/luac")
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(magit-diff-show-diffstat nil)
  '(max-lisp-eval-depth 6000)
  '(max-specpdl-size 4340)
  '(scheme-program-name "/home/stephan/source/tinyscheme/tinyscheme-1.41/scheme")
