@@ -1,10 +1,15 @@
 (package-initialize)
-;;(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/vagrant.el/")
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ;;("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("melpa-stable" . "http://stable.melpa.org/packages/")
+                         ))
 
 
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;;(setq flymake-python-pyflakes-executable "flake8")
 
 ;; (defun init--install-packages ()
 ;;   (packages-install
@@ -48,10 +53,10 @@
 ;;    (init--install-packages)))
 
 
-(load-file "~/source/java/cedet/cedet-devel-load.el")
-(add-hook 'after-init-hook (lambda ()
-			     (message "activate-malabar-mode")
-			     (activate-malabar-mode)))
+;; (load-file "~/source/java/cedet/cedet-devel-load.el")
+;; (add-hook 'after-init-hook (lambda ()
+;; 			     (message "activate-malabar-mode")
+;; 			     (activate-malabar-mode)))
 
 
 (add-hook 'malabar-java-mode-hook 'flycheck-mode)
@@ -73,17 +78,30 @@
 (global-set-key (kbd "C-c c") 'comment-region )
 (global-set-key (kbd "C-c u") 'uncomment-region )
 
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-calm-forest)
+;; (load-file "~/.emacs.d/elpa/color-theme-6.6.1/color-theme.el")
+;;(require 'color-theme)
+;; (eval-after-load "color-theme"
+;;   '(progn
+;;      (color-theme-initialize)
+;;      (color-theme-actress)))
+;;(color-theme-initialize)
+;;(color-theme-calm-forest)
+
+;; (load-file "~/.emacs.d/elpa/color-theme-actress-0.2.2/color-theme-actress.el")
+;; (color-theme-actress)
+
+;; (load-file "~/.emacs.d/elpa/color-theme-gruber-darker-1/color-theme-gruber-darker.el")
+;; (color-theme-gruber-darker)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cider-lein-command "/usr/local/bin/lein")
+ '(cider-lein-command "/opt/lein")
+ '(custom-enabled-themes (quote (tango-dark)))
  '(display-time-mode t)
+ '(ediff-window-setup-function (quote ediff-setup-windows-plain))
  '(emms-player-list nil)
  '(flymake-luac-program "/home/stephan/source/lua/5.1/bin/luac")
  '(indent-tabs-mode nil)
